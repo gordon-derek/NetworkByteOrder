@@ -1,0 +1,38 @@
+Team Members:
+Derek Gordon
+
+Note, this is only the files I have made.  The project includes files that 
+were provided by a professor which I will not publish.  Thank You.
+
+Files Being Submitted:
+PBServer.java 
+ - PBServer.java takes input sent from a client in Network Byte Order and solves the equation sent
+using a stack to store the numbers as read in and upon reading an operator, solves a part of the equation
+until there is nothing to be read and only 1 item in the stack, the result.  If the input is Illegal,
+when evaluated not have any/to many numbers on the stack, or breaking mathematical laws, an error will
+be returned to the client.
+
+PBClient.java
+ - PBClient.java takes input from the user(mathematical equation in infix notation) and converts the equation
+to Reverse Polish notation.  After converting to Reverse Polish the client will then convert the equation into
+Network Byte Order to be sent to the server.  In order to convert to NBO it needs to go through the equation,
+character by character, deciding whether it is an integer or operator and sending the appropriate mask byte to
+the server to make sure the server can solve the problem correctly.  PBClient.java then will reciever the result
+back from the server, which can be the actual answer or a tag byte that signifies a certain error that has occured.
+
+Method of Testing:
+PBClient.java
+ - We tested PBClient.java by printing out the network byte order and tag bytes of the equation upon being converted so
+that we could compare to see that everything is being performed correctly.
+
+PBServer.java
+ -PBServer was tested one operation type at a time.  A simple algorithm was made to solve parts of the equation. Testing
+ by only implementing the algorithm for one specific operation.  From there we tested that single operation, fixing errors,
+until we no longer could find any.  After one operation was tested we methodized the approach we took so that it would
+work easily for all operations.  Then went on to test all the operations until we couldn't find any more errors.
+
+Thanks To:
+
+Dr. Fossum, For his incredibly efficient I2P and NBO classes.
+
+Without these vital tools, this program would have been very difficult to complete.
